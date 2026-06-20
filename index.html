@@ -379,41 +379,25 @@ footer{
     animation:float linear infinite;
 }
 body{
-cursor:none;
+    cursor:none;
 }
 
 #cursor{
-
-position:fixed;
-
-width:25px;
-height:25px;
-
-border:2px solid #e2bc00;
-
-border-radius:50%;
-
-pointer-events:none;
-
-transform:translate(-50%,-50%);
-
-transition:
-transform .12s,
-width .25s,
-height .25s,
-background .25s;
-
-z-index:999999;
-
+    position:fixed;
+    width:18px;
+    height:18px;
+    border:2px solid #e2bc00;
+    border-radius:50%;
+    pointer-events:none;
+    transform:translate(-50%,-50%);
+    transition:transform .08s ease, width .2s, height .2s, background .2s;
+    z-index:99999;
 }
 
 #cursor.active{
-
-width:45px;
-height:45px;
-
-background:rgba(226,188,0,.2);
-
+    width:45px;
+    height:45px;
+    background:rgba(226,188,0,.2);
 }
 
 
@@ -511,9 +495,7 @@ height:180px;
 
 }
 
-body{
-    cursor:url("https://ton-site.com/cursor.cur"), auto;
-}
+
 
 </style>
 
@@ -604,6 +586,26 @@ Me contacter : Foxat__
 <footer>
 
 </footer>
+<script>
+const cursor = document.getElementById("cursor");
+
+document.addEventListener("mousemove",(e)=>{
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+});
+
+// effet hover
+document.querySelectorAll("a,button,.btn").forEach(el=>{
+    el.addEventListener("mouseenter",()=>{
+        cursor.classList.add("active");
+    });
+
+    el.addEventListener("mouseleave",()=>{
+        cursor.classList.remove("active");
+    });
+});
+</script>
+
 <script>
 
 const particles=document.getElementById("particles");
