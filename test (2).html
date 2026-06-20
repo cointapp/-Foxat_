@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio - ShopSolTomMinia</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+html{
+    scroll-behavior:smooth;
+}
+
+:root{
+    --bg:#f2eee6;
+    --card:white;
+    --text:#222;
+    --shadow:0 15px 40px rgba(0,0,0,.08);
+}
+
+body.dark{
+    --bg:#111;
+    --card:#1d1d1d;
+    --text:white;
+    --shadow:0 15px 40px rgba(0,0,0,.45);
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    transition:.4s;
+}
+
+.profile,
+.card{
+    background:var(--card);
+    box-shadow:var(--shadow);
+    transition:.4s;
+}
+
+h1,h2,h3,p{
+    color:var(--text);
+}
+
+.fade{
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s;
+}
+
+.fade.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.profile{
+    animation:pop .8s ease;
+}
+
+@keyframes pop{
+
+0%{
+transform:scale(.8);
+opacity:0;
+}
+
+100%{
+transform:scale(1);
+opacity:1;
+}
+
+}
+
+.card{
+
+transition:
+transform .35s,
+box-shadow .35s;
+
+}
+
+.card:hover{
+
+transform:
+translateY(-10px)
+scale(1.03);
+
+box-shadow:0 25px 45px rgba(0,0,0,.15);
+
+}
+
+.btn{
+
+position:relative;
+overflow:hidden;
+
+}
+
+.btn::before{
+
+content:"";
+position:absolute;
+
+top:0;
+left:-120%;
+
+width:80%;
+height:100%;
+
+background:rgba(255,255,255,.3);
+
+transform:skewX(-25deg);
+
+transition:.6s;
+
+}
+
+.btn:hover::before{
+
+left:130%;
+
+}
+.card img{
+
+transition:.5s;
+
+}
+
+.card:hover img{
+
+transform:scale(1.08);
+
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Poppins,sans-serif;
+}
+
+
+
+header{
+    display:flex;
+    justify-content:center;
+    margin-top:40px;
+}
+
+.profile{
+    
+    width:900px;
+    border-radius:25px;
+    padding:40px;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+    text-align:center;
+}
+
+.avatar{
+
+width:140px;
+height:140px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+position:relative;
+
+z-index:2;
+
+animation:avatarFloat 4s ease-in-out infinite;
+
+box-shadow:
+0 0 20px rgba(226,188,0,.5);
+
+}
+
+.profile{
+
+position:relative;
+
+}
+
+.profile::before{
+
+content:"";
+
+position:absolute;
+
+top:20px;
+left:50%;
+
+transform:translateX(-50%);
+
+width:165px;
+height:165px;
+
+border-radius:50%;
+
+border:3px solid #e2bc00;
+
+animation:ring 3s linear infinite;
+
+}
+
+.profile::after{
+
+content:"";
+
+position:absolute;
+
+top:15px;
+left:50%;
+
+transform:translateX(-50%);
+
+width:175px;
+height:180px;
+
+border-radius:50%;
+
+border:2px solid rgba(226,188,0,.4);
+
+animation:ring2 4s linear infinite;
+
+}
+
+@keyframes avatarFloat{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-10px);
+}
+
+}
+
+@keyframes ring{
+
+0%{
+transform:translateX(-50%) rotate(0);
+}
+
+100%{
+transform:translateX(-50%) rotate(360deg);
+}
+
+}
+
+@keyframes ring2{
+
+0%{
+transform:translateX(-50%) rotate(360deg);
+}
+
+100%{
+transform:translateX(-50%) rotate(0);
+}
+
+}
+
+
+h1{
+    margin-top:20px;
+    font-size:50px;
+}
+
+.badges{
+    margin-top:15px;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 18px;
+    border-radius:20px;
+    font-weight:600;
+    margin:5px;
+}
+
+.creator{
+    background:#ece7ff;
+    color:#6053ff;
+}
+
+.designer{
+    background:#dff7eb;
+    color:#0c9d63;
+}
+
+.buttons{
+    margin-top:30px;
+}
+
+.btn{
+    display:inline-block;
+    padding:15px 35px;
+    margin:10px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.25s;
+}
+
+.open{
+    background:#1f1f1f;
+    color:white;
+}
+
+.discord{
+    background:#5865F2;
+    color:white;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+}
+
+section{
+    width:1100px;
+    margin:60px auto;
+}
+
+h2{
+    margin-bottom:25px;
+    font-size:34px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:.25s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.card h3{
+    padding:18px;
+}
+
+footer{
+    text-align:center;
+    padding:50px;
+    color:#777;
+}
+#particles{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    z-index:-1;
+}
+
+.particle{
+    position:absolute;
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:#e2bc00;
+    opacity:.25;
+    animation:float linear infinite;
+}
+body{
+cursor:none;
+}
+
+#cursor{
+
+position:fixed;
+
+width:25px;
+height:25px;
+
+border:2px solid #e2bc00;
+
+border-radius:50%;
+
+pointer-events:none;
+
+transform:translate(-50%,-50%);
+
+transition:
+transform .12s,
+width .25s,
+height .25s,
+background .25s;
+
+z-index:999999;
+
+}
+
+#cursor.active{
+
+width:45px;
+height:45px;
+
+background:rgba(226,188,0,.2);
+
+}
+
+
+@keyframes float{
+
+0%{
+transform:translateY(110vh) scale(0);
+}
+
+100%{
+transform:translateY(-20vh) scale(1.4);
+}
+
+}
+@media(max-width:1200px){
+
+section{
+
+width:95%;
+
+}
+
+.profile{
+
+width:95%;
+
+}
+
+}
+
+@media(max-width:900px){
+
+h1{
+
+font-size:38px;
+
+}
+
+.grid{
+
+grid-template-columns:1fr;
+
+}
+
+.buttons{
+
+display:flex;
+flex-direction:column;
+align-items:center;
+
+}
+
+.btn{
+
+width:100%;
+
+max-width:320px;
+
+}
+
+.avatar{
+
+width:110px;
+height:110px;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.profile{
+
+padding:25px;
+
+}
+
+h1{
+
+font-size:28px;
+
+}
+
+h2{
+
+font-size:24px;
+
+}
+
+.card img{
+
+height:180px;
+
+}
+
+}
+
+body{
+    cursor:url("https://ton-site.com/cursor.cur"), auto;
+}
+
+</style>
+
+
+
+</head>
+
+
+<body>
+<div id="cursor"></div>
+<div id="particles"></div>
+
+<header>
+
+
+
+
+<div class="profile">
+
+<img class="avatar" src="https://cdn.discordapp.com/avatars/1474932690175262720/df84ed62a3effdc4664e12f83ff7675e.webp?size=80">
+
+<h1>ShopSolTomMinia</h1>
+
+<div class="badges">
+<span class="badge creator">Créateur</span>
+<span class="badge designer">Designer</span>
+</div>
+
+<div class="buttons">
+<a href="#" class="btn open">COMMANDE : OPEN</a>
+
+<a href="https://discord.com/users/1474932690175262720" class="btn discord">
+Me contacter : Foxat__
+</a>
+
+</div>
+
+</div>
+
+</header>
+
+<section>
+
+<h2>Mes créations</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://cxz-lol.b-cdn.net/cards/cmohsusgp1na7ti265kgfy4qm/card_1777585265323_f781e751f53a21af.png">
+<h3>Miniature Animal Crossing</h3>
+</div>
+
+
+<div class="card">
+<img src="https://cxz-lol.b-cdn.net/cards/cmohsusgp1na7ti265kgfy4qm/card_1778939336305_ace422cbcbccd952.png">
+<h3>Miniature Roblox</h3>
+</div>
+
+
+
+<div class="card">
+<img src="https://cxz-lol.b-cdn.net/cards/cmohsusgp1na7ti265kgfy4qm/card_1778939429665_726fec0dc9000fb4.webp">
+<h3>Emote 1 - Pour Esrablue</h3>
+</div>
+
+
+
+<div class="card">
+<img src="https://cxz-lol.b-cdn.net/cards/cmohsusgp1na7ti265kgfy4qm/card_1778939490372_830e16fab647ace1.webp">
+<h3>Emote 2 - Pour Esrablue</h3>
+</div>
+
+<div class="card">
+<img src="https://cxz-lol.b-cdn.net/cards/cmohsusgp1na7ti265kgfy4qm/card_1778315565423_5fabfe1259e71597.png">
+<h3>LeVrai Unreal - Miniature Roblox</h3>
+</div>
+
+<div class="card">
+<img src="https://cxz-lol.b-cdn.net/cards/cmohsusgp1na7ti265kgfy4qm/card_1779020017519_e04ecff64c9de8db.webp">
+<h3>PDP - Pour Kaderfocus</h3>
+</div>
+
+
+</div>
+
+</section>
+
+<footer>
+
+</footer>
+<script>
+
+const particles=document.getElementById("particles");
+
+for(let i=0;i<80;i++){
+
+    const p=document.createElement("div");
+
+    p.className="particle";
+
+    p.style.left=Math.random()*100+"%";
+    p.style.animationDuration=(8+Math.random()*12)+"s";
+    p.style.animationDelay=(Math.random()*10)+"s";
+
+    const size=3+Math.random()*8;
+
+    p.style.width=size+"px";
+    p.style.height=size+"px";
+
+    particles.appendChild(p);
+
+}
+
+</script>
+
+</body>
+</html>
